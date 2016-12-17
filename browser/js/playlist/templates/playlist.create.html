@@ -1,0 +1,25 @@
+<div class="well">
+  <form class="form-horizontal" novalidate ng-submit="handleSubmit()" name="playlistForm">
+    <fieldset>
+      <legend>New Playlist</legend>
+      <div class="form-group">
+        <label class="col-xs-2 control-label">Name</label>
+        <div class="col-xs-10">
+          <input class="form-control"
+                 type="text"
+                 name="title"
+                 ng-model="playlist.title"
+                 ng-maxlength="16"
+                 required>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-xs-10 col-xs-offset-2">
+          <button type="submit" class="btn btn-success" ng-disabled="playlistForm.$invalid">Create Playlist</button>
+        </div>
+      </div>
+    </fieldset>
+    <div class="alert alert-warning" ng-hide="playlistForm.title.$pristine">Please enter a name</div>
+    <div class="alert alert-warning" ng-hide="playlistForm.title.$pristine">Must be less than 16 characters</div>
+  </form>
+</div>
