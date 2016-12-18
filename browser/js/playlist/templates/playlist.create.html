@@ -7,8 +7,8 @@
         <div class="col-xs-10">
           <input class="form-control"
                  type="text"
-                 name="title"
-                 ng-model="playlist.title"
+                 name="name"
+                 ng-model="playlist.name"
                  ng-maxlength="16"
                  required>
         </div>
@@ -19,7 +19,7 @@
         </div>
       </div>
     </fieldset>
-    <div class="alert alert-warning" ng-hide="playlistForm.title.$pristine">Please enter a name</div>
-    <div class="alert alert-warning" ng-hide="playlistForm.title.$pristine">Must be less than 16 characters</div>
+    <div class="alert alert-warning" ng-show="playlistForm.name.$dirty && playlistForm.name.$error.required">Please enter a name</div>
+    <div class="alert alert-warning" ng-show="playlistForm.name.$dirty && playlistForm.name.$error.maxlength">Must be less than 16 characters</div>
   </form>
 </div>

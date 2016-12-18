@@ -1,12 +1,22 @@
+/* global juke */
 'use strict';
 
-juke.factory('SongFactory', function () {
+juke.factory('SongFactory', function ($http, $log) {
 
-  return {
-    convert: function (song) {
-      song.audioUrl = '/api/songs/' + song.id + '/audio';
-      return song;
-    }
+	let songFactory = {};
+
+	songFactory.convert = song => {
+    song.audioUrl = '/api/songs/' + song.id + '/audio';
+    return song;
   };
+
+  songFactory.fetchAll = () => {
+		return $http.get('api/songs')
+			.then(songs => songs.data)
+			.catch($log.error);
+
+  };
+
+  return songFactory;
 
 });

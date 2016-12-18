@@ -21,6 +21,7 @@
 
     <script src="/js/playlist/playlist.controller.js" defer></script>
     <script src="/js/playlist/playlist.states.js" defer></script>
+    <script src="/js/playlist/playlist.factory.js" defer></script>
 
 
   </head>
@@ -43,6 +44,12 @@
           <hr>
           <section>
             <h4 class="text-muted">PLAYLISTS</h4>
+            <div ng-repeat="playlist in playlists">
+              <p ui-sref-active="active" class="playlist-item">
+                <a ui-sref="singlePlaylist({id: playlist.id})">{{ playlist.name }}</a>
+              </p>
+            </div>
+
             <p ui-sref-active="active">
               <a ui-sref="createPlaylist" class="btn btn-primary btn-block"><span class="glyphicon glyphicon-plus"></span> PLAYLIST</a>
             </p>
